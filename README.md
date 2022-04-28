@@ -14,7 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 Install Kotlin 1.6 or higher.
 
 ```
-https://kotlinlang.org/
+https://kotlinlang.org
 ```
 
 ### Installing
