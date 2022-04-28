@@ -1,0 +1,32 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - run: chmod +x gradlew
+      - run: ./gradlew sonarqube
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - run: ./gradlew build
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "html5-websocket-chat" #Must be unique in Heroku
+          heroku_email: "${{secrets.HEROKU_MAIL}}"
+          #buildpack: "" #OPTIONAL
+          #branch: "" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
+          #dontuseforce: false #OPTIONAL and DEFAULT - false
+          usedocker: true #OPTIONAL and DEFAULT - false
+          #appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
+          #docker_heroku_process_type: "" #OPTIONAL and DEFAULT - "web"
