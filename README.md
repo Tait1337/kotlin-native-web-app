@@ -24,14 +24,18 @@ Clone the Repository.
 git clone https://github.com/tait1337/kotlin-native-web-app.git
 ```
 
+Build the Web Application.
+```
+./gradlew build
+```
+⚠️No support for Windows up to now. See https://ktor.io/docs/native-server.html#targets
+
 Run the Web Application.
 ```
-./gradlew runReleaseExecutableNative
+./kotlin-native-web-app.kexe
 ```
 
 Navigate to http://localhost:8080/.
-
-⚠️No support for Windows up to now. See https://ktor.io/docs/native-server.html#targets
 
 ### Configuration
 
@@ -43,7 +47,12 @@ No Tests exist.
 
 ## Deployment
 
-You can build the app on every OS and use that binary.
+The most basic option to run the Application is by building the Dockerimage.
+
+```
+docker build -t kotlin-native-web-app:1.0.0-SNAPSHOT .
+docker run -p 8080:8080 -d kotlin-native-web-app:1.0.0-SNAPSHOT
+```
 
 ## Contributing
 
