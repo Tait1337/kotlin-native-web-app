@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform") version "1.6.21"
+    id("org.sonarqube") version "3.3"
 }
 
 group = "de.clique.westwood.ktornative"
@@ -38,5 +39,13 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
+    }
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "Tait1337_kotlin-native-web-app")
+        property("sonar.organization", "tait1337")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
