@@ -32,7 +32,7 @@ Build the Web Application.
 
 Run the Web Application.
 ```
-./kotlin-native-web-app.kexe
+./build/bin/native/releaseExecutable/kotlin-native-web-app.kexe
 ```
 
 Navigate to http://localhost:8080/.

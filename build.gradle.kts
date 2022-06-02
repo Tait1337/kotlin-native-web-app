@@ -30,8 +30,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-server-core:2.0.0")
-                implementation("io.ktor:ktor-server-cio:2.0.0")
+                implementation("io.ktor:ktor-server-core:2.0.1")
+                implementation("io.ktor:ktor-server-cio:2.0.1")
             }
         }
         val commonTest by getting {
